@@ -4,7 +4,7 @@ import 'package:hasura_connect/hasura_connect.dart';
 
 class RecipeRepository implements IRecipe {
 
-  final _client = HasuraConnect(Constants.HASURA_CONNECT_URL);
+  HasuraConnect _client = HasuraConnect(HASURA_CONNECT_URL);
 
   @override
   Future<List<Map<String,dynamic>>> getRecipeList() async {
@@ -22,11 +22,38 @@ class RecipeRepository implements IRecipe {
 
     return (response['data']['recipes'] as List)
         .map((recipe) => {
+          'id' : recipe['id'],
           'name' : recipe['name'],
           'image_url' : recipe['image_url'],
           'description' : recipe['description']
         })
         .toList();
+  }
+
+  @override
+   Future<List<Map<String, dynamic>>> getRecipeIngredients({int id}) async {
+
+    final response = await _client.query('''
+      query {
+        ingredients(
+          where: {
+            recipe_id: {
+              _eq: $id
+            }
+          }
+        ) {
+          name
+        }
+      }
+    ''');
+
+    return (response['data']['ingredients'] as List )
+        .map((ingredient) => {
+        'id' : ingredient['id'],
+        'name' : ingredient['name']
+      }).toList();
+
+
   }
 
 

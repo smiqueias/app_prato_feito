@@ -14,10 +14,10 @@ class Main extends StatelessWidget {
       title: "Recipe Management",
       debugShowCheckedModeBanner: false,
       theme: appTheme,
-      initialRoute: Constants.INITIAL_ROUTE,
+      initialRoute: INITIAL_ROUTE,
       routes: {
-        Constants.INITIAL_ROUTE : (_) => RecipeView(),
-        Constants.NEW_RECIPE : (_) => NewRecipeView(),
+        INITIAL_ROUTE : (_) => RecipeView(),
+        NEW_RECIPE : (_) => NewRecipeView(),
       },
     );
   }

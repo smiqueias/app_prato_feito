@@ -10,4 +10,8 @@ class RecipeController {
     return _repositpry.getRecipeList();
   }
 
+  Future<List<Map<String,dynamic>>> fetchRecipeIngredients({int id}) async {
+    return _repositpry.getRecipeIngredients(id: id);
+  }
+
 }

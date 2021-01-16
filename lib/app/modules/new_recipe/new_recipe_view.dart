@@ -7,7 +7,7 @@ class NewRecipeView extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Add Recipe'
+          'Nova Receita'
         ),
       ),
     );

@@ -16,14 +16,14 @@ class RecipeView extends StatelessWidget {
               color: Colors.blue,
             ),
 
-            onPressed: () => Navigator.pushNamed(context, Constants.NEW_RECIPE),
+            onPressed: () => Navigator.pushNamed(context, NEW_RECIPE),
 
           )
 
         ],
         centerTitle: false,
         title: Text(
-          'All Recipes',
+          'Todas as Receitas',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24
